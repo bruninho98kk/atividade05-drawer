@@ -16,9 +16,20 @@ const Contador = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '50px', fontFamily: 'Arial, sans-serif' }}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100vh',
+                fontFamily: 'Arial, sans-serif',
+            }}
+        >
             <h1 style={{ color: '#4CAF50' }}>Contador</h1>
-            <p style={{ fontSize: '20px', margin: '20px 0' }}>Valor atual: <strong>{contador}</strong></p>
+            <p style={{ fontSize: '20px', margin: '20px 0' }}>
+                Valor atual: <strong>{contador}</strong>
+            </p>
             <div>
                 <button
                     onClick={subtrair}
