@@ -24,10 +24,12 @@ const Contador = () => {
                 justifyContent: 'center',
                 height: '100vh',
                 fontFamily: 'Arial, sans-serif',
-                marginTop: '-70px', 
+                marginTop: '-70px',
+                backgroundColor: 'black', // Fundo preto
+                color: 'white', // Texto branco para contraste
             }}
         >
-            <h1 style={{ color: '#4CAF50' }}>Contador</h1>
+            <h1 style={{ color: '#FFA500' }}>Contador</h1>
             <p style={{ fontSize: '20px', margin: '20px 0' }}>
                 Valor atual: <strong>{contador}</strong>
             </p>
@@ -35,9 +37,9 @@ const Contador = () => {
                 <button
                     onClick={subtrair}
                     style={{
-                        margin: '5px',
+                        margin: '7px',
                         padding: '10px 20px',
-                        backgroundColor: 'black',
+                        backgroundColor: '#FFA500',
                         color: 'white',
                         border: 'none',
                         borderRadius: '5px',
@@ -49,9 +51,9 @@ const Contador = () => {
                 <button
                     onClick={somar}
                     style={{
-                        margin: '5px',
+                        margin: '7px',
                         padding: '10px 20px',
-                        backgroundColor: 'black',
+                        backgroundColor: '#FFA500',
                         color: 'white',
                         border: 'none',
                         borderRadius: '5px',
@@ -63,9 +65,9 @@ const Contador = () => {
                 <button
                     onClick={resetar}
                     style={{
-                        margin: '5px',
+                        margin: '7px',
                         padding: '10px 20px',
-                        backgroundColor: 'black',
+                        backgroundColor: '#FFA500',
                         color: 'white',
                         border: 'none',
                         borderRadius: '5px',
