@@ -15,8 +15,8 @@ export default function HomeScreen() {
                 <Ionicons name="menu" size={24} color="black" />
             </TouchableOpacity>
             <View>
-                <Text style={styles.titleText}>Home Screen</Text>
-                <Text style={styles.subtitleText}>Welcome to the home screen!</Text>
+                <Text style={styles.titleText}>Página Inicial</Text>
+                <Text style={styles.subtitleText}>Bem vindo ao site</Text>
             </View>
         </View>
     );
