@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f5f5f5', 
+        backgroundColor: 'black', 
     },
     button: {
-        backgroundColor: '#93E9BE',
+        backgroundColor: '#FFA500',
         paddingVertical: 14,
         paddingHorizontal: 24,
         borderRadius: 12,
@@ -53,11 +53,13 @@ const styles = StyleSheet.create({
         marginLeft: 10, 
     },
     titleText: {
+        paddingTop: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
         fontSize: 24,
         fontWeight: 'bold',
         color: '#333', 
         marginBottom: 8, 
-        marginLeft: 50
     },
     subtitleText: {
         fontSize: 16,
