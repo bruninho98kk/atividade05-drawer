@@ -24,6 +24,7 @@ const Contador = () => {
                 justifyContent: 'center',
                 height: '100vh',
                 fontFamily: 'Arial, sans-serif',
+                marginTop: '-70px', 
             }}
         >
             <h1 style={{ color: '#4CAF50' }}>Contador</h1>
