@@ -1,63 +1,44 @@
 import React, { useState } from 'react';
-import {    
+import {
     View,
-    Text, 
-    TextInput,
-    Button,
+    Text,
     StyleSheet,
+    Pressable,
 } from 'react-native';
 
 export default function CalculadoraScreen() {
-    const [numA, setNumA] = useState('');
-    const [numB, setNumB] = useState('');
+    const [input, setInput] = useState('');
     const [result, setResult] = useState(null);
 
-    const soma = () => {
-        setResult(Number(numA) + Number(numB));
-    };
-
-    const subtracao = () => {
-        setResult(Number(numA) - Number(numB));
-    };
-
-    const multiplicacao = () => {
-        setResult(Number(numA) * Number(numB));
-    };
-
-    const divisao = () => {
-        if (Number(numB) !== 0) {
-            setResult(Number(numA) / Number(numB));
+    const handlePress = (value) => {
+        if (value === 'C') {
+            setInput('');
+            setResult(null);
+        } else if (value === '=') {
+            try {
+                setResult(eval(input)); // Avalia a expressão matemática
+            } catch (error) {
+                setResult('Erro');
+            }
         } else {
-            setResult('Erro: Divisão por zero');
+            setInput((prev) => prev + value);
         }
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.titleText}>Calculadora</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Digite o número A"
-                keyboardType="numeric"
-                value={numA}
-                onChangeText={setNumA}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Digite o número B"
-                keyboardType="numeric"
-                value={numB}
-                onChangeText={setNumB}
-            />
-            <View style={styles.buttonContainer}>
-                <Button title="Somar" onPress={soma} />
-                <Button title="Subtrair" onPress={subtracao} />
-                <Button title="Multiplicar" onPress={multiplicacao} />
-                <Button title="Dividir" onPress={divisao} />
+            <Text style={styles.display}>{result !== null ? result : input || '0'}</Text>
+            <View style={styles.pressableGrid}>
+                {['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', 'C', '0', '=', '+'].map((value) => (
+                    <Pressable
+                        key={value}
+                        style={styles.pressable}
+                        onPress={() => handlePress(value)}
+                    >
+                        <Text style={styles.pressableText}>{value}</Text>
+                    </Pressable>
+                ))}
             </View>
-            {result !== null && (
-                <Text style={styles.resultText}>Resultado: {result}</Text>
-            )}
         </View>
     );
 }
@@ -65,36 +46,36 @@ export default function CalculadoraScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f5f5f5', 
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: '#f5f5f5',
+        justifyContent: 'flex-end',
         padding: 16,
     },
-    titleText: {
+    display: {
+        fontSize: 48,
+        color: '#333',
+        textAlign: 'right',
+        marginBottom: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
+        paddingBottom: 8,
+    },
+    pressableGrid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+    },
+    pressable: {
+        backgroundColor: '#90EE90',
+        width: '22%',
+        height: 70,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8,
+        margin: 8,
+    },
+    pressableText: {
+        color: '#fff',
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#333', 
-        marginBottom: 16, 
-    },
-    input: {
-        width: '80%',
-        height: 40,
-        borderColor: '#ccc',
-        borderWidth: 1,
-        borderRadius: 4,
-        marginBottom: 12,
-        paddingHorizontal: 8,
-        backgroundColor: '#fff',
-    },
-    buttonContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '80%',
-        marginBottom: 16,
-    },
-    resultText: {
-        fontSize: 18,
-        color: '#333',
-        marginTop: 16,
     },
 });
