@@ -29,7 +29,7 @@ export default function CalculadoraScreen() {
         <View style={styles.container}>
             <Text style={styles.display}>{result !== null ? result : input || '0'}</Text>
             <View style={styles.pressableGrid}>
-                {['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', 'C', '0', '=', '+'].map((value) => (
+                {['1', '2', '/', '3', '4', '*', '5', '6', '-', '7', '8', '+', '9', '0', '=', 'C'].map((value) => (
                     <Pressable
                         key={value}
                         style={styles.pressable}
@@ -46,13 +46,13 @@ export default function CalculadoraScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#000',
         justifyContent: 'flex-end',
         padding: 16,
     },
     display: {
         fontSize: 48,
-        color: '#333',
+        color: '#FFFFFF',
         textAlign: 'right',
         marginBottom: 16,
         borderBottomWidth: 1,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     pressable: {
-        backgroundColor: '#90EE90',
+        backgroundColor: '#FFA500',
         width: '22%',
         height: 70,
         justifyContent: 'center',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         margin: 8,
     },
     pressableText: {
-        color: '#fff',
+        color: '#FFFFFF',
         fontSize: 24,
         fontWeight: 'bold',
     },
