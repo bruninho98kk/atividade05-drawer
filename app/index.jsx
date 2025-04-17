@@ -8,16 +8,17 @@ export default function HomeScreen() {
 
     return (
         <View style={styles.container}>
+            <View>
+                <Text style={styles.titleText}>Bem-Vindo ao APP</Text>
+                <Text style={styles.subtitleText}>Acesse as funcionalidades no botão abaixo</Text>
+            </View>
             <TouchableOpacity 
                 style={styles.button}
                 onPress={() => navigation.openDrawer()}
             >
                 <Ionicons name="menu" size={24} color="black" />
             </TouchableOpacity>
-            <View>
-                <Text style={styles.titleText}>Página Inicial</Text>
-                <Text style={styles.subtitleText}>Bem vindo ao site</Text>
-            </View>
+        
         </View>
     );
 }
@@ -66,5 +67,6 @@ const styles = StyleSheet.create({
         color: '#666',
         textAlign: 'center',
         marginHorizontal: 20,
+        paddingBottom: 20
     },
 });
